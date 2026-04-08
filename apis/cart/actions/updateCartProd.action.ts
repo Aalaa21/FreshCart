@@ -1,7 +1,7 @@
 
 'use server'
 
-import { baseUrl } from "@/apis/baseUrl";
+
 import { getToken } from "@/utilities/getTokenFn";
 
 
@@ -16,7 +16,7 @@ export async function updateCart({ productId, count }: { productId: string; coun
         }
 try{
     
-    const data= await fetch(`${baseUrl}/cart/${productId}`,{
+    const data= await fetch(`${process.env.API_BASE_URL}/cart/${productId}`,{
         method:'PUT',
         body:JSON.stringify({
             count:count

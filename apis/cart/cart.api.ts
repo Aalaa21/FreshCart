@@ -1,5 +1,5 @@
 
-import { baseUrl } from "@/apis/baseUrl";
+
 import { getToken } from "@/utilities/getTokenFn";
 import { cartDataInterface } from "@/interfaces/cart.interface";
 
@@ -14,7 +14,7 @@ export async function getCart():Promise<cartDataInterface>{
         }
 try{
     
-    const data= await fetch(`${baseUrl}/cart`,{
+    const data= await fetch(`${process.env.API_BASE_URL}/cart`,{
   
         headers:{
            token,

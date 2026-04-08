@@ -1,7 +1,7 @@
 
 'use server'
 
-import { baseUrl } from "@/apis/baseUrl";
+
 import { getToken } from "@/utilities/getTokenFn";
 
 
@@ -16,7 +16,7 @@ export async function clearCart(){
         }
 try{
     
-    const data= await fetch(`${baseUrl}/cart`,{
+    const data= await fetch(`${process.env.API_BASE_URL}/cart`,{
         method:'DELETE',
         headers:{
            token,

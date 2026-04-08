@@ -1,4 +1,4 @@
-import { baseUrl } from './baseUrl';
+
 export interface categoryInterface{
     _id:string,
     name:string,
@@ -6,7 +6,7 @@ export interface categoryInterface{
 }
 export async function getAllCategories(): Promise<categoryInterface[]> {
   try {
-    const res = await fetch(`${baseUrl}/categories`);
+    const res = await fetch(`${process.env.API_BASE_URL}/categories`);
     if (!res.ok) throw new Error('some error');
     const payload = await res.json();
     

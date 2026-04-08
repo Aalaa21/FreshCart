@@ -1,9 +1,9 @@
 import { Root } from '@/interfaces/products.interface';
-import { baseUrl } from './baseUrl';
+
 
 export async function getProducts(): Promise<Root> {
   try {
-    const res = await fetch(`${baseUrl}/products`);
+    const res = await fetch(`${process.env.API_BASE_URL}/products`);
      if (!res.ok) {
     const errorBody = await res.text(); // optional: capture server’s error message
     throw new Error(

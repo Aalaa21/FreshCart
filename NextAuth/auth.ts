@@ -1,7 +1,5 @@
 import { NextAuthOptions } from "next-auth";
 import credentials from "next-auth/providers/credentials";
-import { email } from "zod";
-import { baseUrl } from "@/apis/baseUrl";
 import {jwtDecode} from 'jwt-decode'
 export const nextAuthConfig: NextAuthOptions={
     providers:[
@@ -13,7 +11,7 @@ export const nextAuthConfig: NextAuthOptions={
             },
             authorize: async (credentials)=>{
 
-            const data= await fetch(`${baseUrl}/auth/signin`,{
+            const data= await fetch(`${process.env.API_BASE_URL}/auth/signin`,{
                 method:"POST",
                 body: JSON.stringify({
                     email:credentials?.email,

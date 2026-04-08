@@ -1,5 +1,5 @@
 
-import { baseUrl } from "@/apis/baseUrl";
+
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,7 +13,7 @@ export async function GET(req:NextRequest){
         return NextResponse.json({error:'User is not authenticated'},{status:401})
     }
 
-    const data= await fetch(`${baseUrl}/cart`,{
+    const data= await fetch(`${process.env.API_BASE_URL}/cart`,{
       
             headers:{
                token:token.token,

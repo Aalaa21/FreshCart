@@ -2,12 +2,12 @@
 'use server'
 
 
-import { baseUrl } from "@/apis/baseUrl";
+
 import { LoginSchemaType } from '../schema/loginSchema';
 import { cookies } from "next/headers";
 
 export async function LoginFormAction(formData: LoginSchemaType){
-    const data= await fetch(`${baseUrl}/auth/signin`,{
+    const data= await fetch(`${process.env.API_BASE_URL}/auth/signin`,{
         method:"POST",
         body: JSON.stringify(formData),
         headers:{
